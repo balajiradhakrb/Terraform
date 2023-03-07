@@ -4,6 +4,7 @@ resource "aws_instance" "my-instance" {
   availability_zone      = var.zone1
   key_name               = "terraform-key"
   vpc_security_group_ids = ["sg-05b8da38930f49227"]
+  user_data              = filebase64("installhttpd.sh")
   tags = {
     Name = "terraform instance"
   }
